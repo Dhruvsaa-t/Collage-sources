@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>Assignment 1</title>
+    <style>
+        h2 {
+            color: aliceblue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950">
+    <header class="text-gray-400 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="index.html" class="mr-5 hover:text-white">Home</a>
+                <a href="assignment.html" class="mr-5 hover:text-white">Assignment</a>
+                <a href="matrial.html" class="mr-5 hover:text-white">Materials</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Code write here -->
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>1</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;// import scanner class
+class javaProg1{
+    public static void main(String[] args) {
+
+        //Create object of scanner class
+        Scanner input = new Scanner(System.in);
+
+        //Take input 3 number
+        System.out.print("Enter 1 value:- ");
+        int a = input.nextInt();
+        System.out.print("Enter 2 value:- ");
+        int b = input.nextInt();
+        System.out.print("Enter 3 value:- ");
+        int c = input.nextInt();
+
+        //write logic to find largest number
+        if(a>b) {
+            if(c>a) {
+                System.out.println( c + "is largest value.");
+            }
+            else {
+                System.out.println( a + "is largest value.");
+            }
+        }
+        else{
+            if(b>c) {
+                System.out.println( b + "is largest value.");
+            }
+            else {
+                System.out.println( c + "is largest value.");
+            }
+        }
+
+        input.close();
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto"></section>
+        <h2>2</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+public class javaProg2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Principal amount: ");
+        float principal = sc.nextFloat();
+
+        System.out.print("Enter Rate of Interest: ");
+        float rate = sc.nextFloat();
+
+        System.out.print("Enter Time (in years): ");
+        float time = sc.nextFloat();
+
+        float interest = (principal * rate * time) / 100;
+
+        System.out.println("Simple Interest = " + interest);
+
+    sc.close();
+    }
+}
+
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>3</h2>
+        <pre><code class="language-java">
+class javaProg3{
+    public static void main(String[] args) {
+        for(int i = 1; i <= 5; i++) {
+            for(int j = 1; j<= i; j++) {
+                System.out.print(" " + i);
+            }
+            System.out.println();
+        }
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>4</h2>
+        <pre><code class="language-java">
+class javaProg4{
+    public static void main(String[] args) {
+        for(int i = 1; i <= 5; i++) {
+            for(int sp = 5; sp >= i; sp--   ) {
+                System.out.print(" ");
+            }
+            for(int j = 1; j <= i; j++) {
+                System.out.print( i);
+            }
+            System.out.println();
+        }
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>5</h2>
+        <pre><code class="language-java">
+class javaProg5{
+    public static void main(String[] args) {
+        for(int i = 1; i <= 5; i++) {
+            for(int j = i; j <= 5; j++) {
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>6</h2>
+        <pre><code class="language-java">
+import java.util.Scanner; //import Scanner class 
+
+class javaProg6{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);//Create object of Scanner class
+
+        //Take 6 subject marks
+        System.out.println("Enter 6 Subject marks......");
+        int s1 = input.nextInt();
+        int s2 = input.nextInt();
+        int s3 = input.nextInt();
+        int s4 = input.nextInt();
+        int s5 = input.nextInt();
+        int s6 = input.nextInt();
+
+        //calculate total and avg
+        int total = s1 + s2 + s3 + s4 + s5 + s6;
+        float average = total/6;
+
+        //write logic for class of student
+        String studentClass;
+        if(average >= 70) {
+            studentClass = "Distinction";
+        }
+        else if(average >= 60) {
+            studentClass = "First";
+        }
+        else if(average >= 50) {
+            studentClass = "Second";
+        }
+        else if(average >= 40) {
+            studentClass = "Pass";
+        }
+        else {
+            studentClass = "Fail";
+        }
+
+        //show output
+        System.out.println("------Result------");
+        System.out.println("Total is = " + total);
+        System.out.println("Average is = " + average);
+        System.out.println("Class is = " + studentClass);
+
+        input.close();
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+    <script src="script.js"></script>
+</body>
+
+</html>

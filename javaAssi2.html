@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>Assignment 1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2 {
+            color: aliceblue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950">
+    <header class="text-gray-400 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="index.html" class="mr-5 hover:text-white">Home</a>
+                <a href="assignment.html" class="mr-5 hover:text-white">Assignment</a>
+                <a href="matrial.html" class="mr-5 hover:text-white">Materials</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Code write here -->
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>1</h2>
+        <pre class="text-sm md:text-base leading-relaxed"><code class="language-java">
+import java.util.Scanner;
+
+class pro1 {
+    public static void main(String args[]) {
+
+        //Create objects
+        Scanner input = new Scanner(System.in);
+        
+        //Declare variables
+        int[] arr = new int[10];
+        int max = 0;
+        int min = 0;
+
+        //To take 10 num as input
+        System.out.println("Enter 10 numbers:- ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        //To compare 10 numbers
+        for(int i = 0; i < arr.length; i++) {
+
+            //To find max value
+            if(arr[i] > max) {
+                max = arr[i];
+            }
+            
+            //To find min value
+            if(min == 0) {
+                min = arr[i];
+            }
+            else if(arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        //Print values
+        System.out.print("Max value is... " + max);
+        System.out.print("Min value is... " + min);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>2</h2>
+        <pre class="text-sm md:text-base leading-relaxed"><code class="language-java">
+class pro2 {
+    public static void main(String args[]) {
+        Demo t = new Demo();
+        t.name();
+        t.name("My");
+    }
+}
+
+//Create second class 
+class Demo {
+    //Func 1
+    void name() {
+        System.out.println("My name is polymorphism");
+    }
+
+    //Func 2
+    void name(String str) {
+        System.out.println(str + " name is polymorphism");
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>3</h2>
+        <pre><code class="language-java">
+class pro3 {
+    public static void main(String args[]) {
+        constructor obj = new constructor();
+        constructor obj1 = new constructor(obj);
+    }
+}
+
+// Create second class to make constructor
+class constructor {
+    
+    String message;
+
+    constructor() {
+        message = "Jay mataji bhaibandh dostar ne";
+        System.out.println(message);
+    }
+
+    constructor(constructor obj) {
+        message = obj.message;
+        System.out.println(message);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>4</h2>
+        <pre><code class="language-java">
+class pro4 {
+    public static void main(String args[]) {
+        constructorOverloding obj = new constructorOverloding();
+        constructorOverloding obj1 = new constructorOverloding("Jay mataji bhaibandh dostar ne");
+        constructorOverloding obj2 = new constructorOverloding("Java", "Jay mataji bhaibandh dostar ne");
+    }
+}
+
+class constructorOverloding {
+    String message;
+
+    constructorOverloding() {
+        message = "Jay mataji bhaibandh dostar ne";
+        System.out.println(message);
+    }
+
+    constructorOverloding(String str) {
+        message = str;
+        System.out.println(message);
+    }
+
+    constructorOverloding(String name, String str) {
+        message = str;
+        String naam = name;
+        System.out.println(naam + " " + message);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>5</h2>
+        <pre><code class="language-java">
+class pro5 {
+    public static void main(String args[]) {
+        info obj = new info("Ram", 23);
+        info obj1 = new info("Sita", 22);
+
+        obj.display();
+        obj1.display();
+    }
+}
+
+class info {
+    int age;
+    String name;
+
+    info(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name is... " + name + " and age is... " + age);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>6</h2>
+        <pre><code class="language-java">
+class pro6 {
+    public static void main(String args[]) {
+        Example obj = new Example();
+        Example.func("William Gupta");
+    }
+}
+
+class Example {
+    static String name = "William Smith";
+
+    static void func(String changeName) {
+        name = changeName;
+        System.out.println(name);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>8</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro8 {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter employee name:- ");
+        String name = input.nextLine();
+
+        System.out.print("Enter employee number:- ");
+        int emp_no = input.nextInt();
+
+        System.out.print("Enter employee basic salary:- ");
+        int basic_salary = input.nextInt();
+
+        employee obj = new employee(emp_no, name, basic_salary);
+        obj.allowance();
+        obj.process();
+        obj.display();
+    }
+}
+
+class employee {
+
+    int emp_no, basic_salary;
+    String name;
+    double HRA, DA, PF, net_salary;
+
+    employee(int emp_no, String name, int basic_salary) {
+        this.emp_no = emp_no;
+        this.name = name;
+        this.basic_salary = basic_salary;
+    }
+
+    void allowance() {
+        HRA = (basic_salary * 15) / 100;
+        DA = (basic_salary * 80) / 100;
+        PF = (basic_salary * 10) / 100;
+    }
+
+    void process() {
+        net_salary = (basic_salary + HRA + DA) - PF;
+    }
+
+    void display() {
+        System.out.println("*****************Employee Detail*****************");
+        System.out.println("Employee name.... " + name);
+        System.out.println("Employee id...... " + emp_no);
+        System.out.println("Employee Basic... " + basic_salary);
+        System.out.println("");
+        System.out.println("HRA: " + HRA + " DA: " + DA + " PF: " + PF);
+        System.out.println("Net salary is..." + net_salary);
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>9</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro9 {
+
+    public static void main(String args[]) {
+
+        Student obj = new Student();
+        obj.getData();
+        obj.calculate();
+        obj.display();
+
+    }
+}
+
+class Student {
+
+    static Scanner input = new Scanner(System.in);
+
+    int rollNo, std, total=0;
+    String name, dateOfBirth;
+    int[] subject = new int[7];
+    double per;
+
+    void getData() {
+
+        System.out.print("Enter your name:- ");
+        name = input.nextLine();
+        System.out.print("Enter Date of birth:- ");
+        dateOfBirth = input.nextLine();
+
+        System.out.print("Enter Roll no:- ");
+        rollNo = input.nextInt();
+        System.out.print("Enter standard:- ");
+        std = input.nextInt();
+
+        for(int i = 0; i < subject.length; i++){
+            System.out.print("Enter " + (i + 1) + " Subject marks:- ");
+            subject[i] = input.nextInt();
+        }
+
+    }
+
+    void calculate() { 
+
+        for(int i = 0; i < subject.length; i++) { 
+            total = total + subject[i];
+        }
+        per = (total / subject.length);
+        
+    }
+
+    void display() {
+
+        System.out.println("*****************Result*****************");
+        System.out.println("Roll no :" + rollNo);
+        System.out.println("Standard :" + std);
+        System.out.println("Name :" + name);
+        System.out.println("Date od birth :" + dateOfBirth);
+        System.out.println("------------------------------------");
+        for(int i = 0; i < subject.length; i++) { 
+            System.out.println("Subject " + (i + 1) + " marks: " + subject[i]);
+        }
+        System.out.println("------------------------------------");
+        System.out.println("Total :" + total);
+        System.out.println("Per :" + per);
+    }
+
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>10</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro10 {
+
+    public static void main(String args[]) {
+
+        Product obj = new Product();
+        obj.list();
+        obj.purchase();
+        obj.bill();
+
+    }
+
+}
+
+class Product {
+
+    static Scanner input = new Scanner(System.in);
+
+    int[] product_id = {1, 2, 3, 4, 5};
+    int[] quantity = {10, 10, 10, 10, 10};
+    String[] product_name = {"Milk", "Soda", "Maggi", "Park", "5 Star"};
+    int[] price = {28, 10, 25, 20, 10};
+    int index, no;
+    double total;
+    boolean found = false;
+
+    void list() {
+
+        System.out.println("product_id \t product_name \t price \t quantity");
+        for(int i = 0; i < product_name.length; i++) {
+            System.out.println(product_id[i] + "\t\t" + product_name[i] + "\t\t" + price[i] + "\t\t" + quantity[i]);
+        }
+
+    }
+
+    void purchase() {
+        
+        System.out.print("Enter product name:- ");
+        String name = input.nextLine();
+
+        System.out.print("Enter quantity:- ");
+        no = input.nextInt();
+
+        for (int i = 0; i < product_name.length; i++) {
+            if (product_name[i].equalsIgnoreCase(name)) {
+                found = true;
+                index = i;
+                break;
+            }
+        }
+
+        if (found) {
+
+            if(quantity[index] >= no) {
+                quantity[index] -= no;
+                total = price[index] * no;
+            }
+
+            else {
+                System.out.println("Sorry! Only " + quantity[index] + " units available.");
+            }
+        }
+
+        else {
+            System.out.println("Sorry! We don't have " + name);
+        }
+    }
+
+    void bill() {
+        System.out.println("****************Bill********************");
+        System.out.println("Product name: " + product_name[index]);
+        System.out.println("Quantity: " + no);
+        System.out.println("---------------------------------------");
+        System.out.println("Total price: " + total);
+    }
+    
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>11</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro11{
+    public static void main(String args[]) {
+        Result obj = new Result();
+        obj.getStudent();
+        obj.mark();
+    }
+}
+
+class Student {
+
+    String name;
+    int id, total, no;
+
+    void getStudent() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter student name:- ");
+        name = input.nextLine();
+
+        System.out.print("Enter student id:- ");
+        id = input.nextInt();
+
+        System.out.print("Enter total mark:- ");
+        total = input.nextInt();
+
+        System.out.print("Enter no of subject:- ");
+        no = input.nextInt();
+
+    }
+}
+
+class Result extends Student {
+
+    void mark() {
+        System.out.println("Name: " + name + "\t Student id: " + id);        
+        System.out.println("Total: " + total + "\t Per: " + (total/no));        
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>12</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro12 {
+    public static void main(String[] args) {
+
+        Result obj = new Result();
+        obj.getno();      
+        obj.getmarks();   
+        obj.display();         
+    }
+}
+
+class Student {
+    int rollno;
+
+    void getno() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter Roll Number: ");
+        rollno = input.nextInt();
+    }
+
+    void showno() {
+        System.out.println("Roll Number: " + rollno);
+    }
+}
+
+class Test extends Student {
+    float sub1, sub2, sub3;
+
+    void getmarks() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter marks for 3 subjects:");
+        System.out.print("Subject 1: ");
+        sub1 = input.nextFloat();
+        System.out.print("Subject 2: ");
+        sub2 = input.nextFloat();
+        System.out.print("Subject 3: ");
+        sub3 = input.nextFloat();
+    }
+
+    void putmarks() {
+        System.out.println("Marks:");
+        System.out.println("Subject 1: " + sub1);
+        System.out.println("Subject 2: " + sub2);
+        System.out.println("Subject 3: " + sub3);
+    }
+}
+
+
+class Result extends Test {
+    float total, avg;
+
+    void display() {
+        total = sub1 + sub2 + sub3;
+        avg = total / 3;
+
+        System.out.println("\n--- Student Marksheet ---");
+        showno();
+        putmarks();
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + avg);
+
+        if (avg >= 33)
+            System.out.println("Status: Pass");
+        else
+            System.out.println("Status: Fail");
+    }
+}
+
+  </code></pre>
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>13</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+class pro13 {
+    public static void main(String[] args) {
+        C obj = new C();
+
+        obj.getNum1();
+        obj.getNum2();
+        obj.getNum3();
+        obj.findMax();
+    }
+}
+
+class A {
+    int num1;
+
+    void getNum1() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        num1 = input.nextInt();
+    }
+}
+
+class B extends A {
+    int num2;
+
+    void getNum2() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter second number: ");
+        num2 = input.nextInt();
+    }
+}
+
+class C extends B {
+    int num3;
+
+    void getNum3() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter third number: ");
+        num3 = input.nextInt();
+    }
+
+    void findMax() {
+        int max = num1;
+
+        if (num2 > max) {
+            max = num2;
+        }
+
+        if (num3 > max) {
+            max = num3;
+        }
+
+        System.out.println("\nMaximum number is: " + max);
+    }
+}
+
+
+  </code></pre>
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>14</h2>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+public class pro14 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        Addition add = new Addition();
+        Subtraction sub = new Subtraction();
+        Multiplication mul = new Multiplication();
+        Division div = new Division();
+
+        add.getInput(input);
+        add.add();
+        
+        sub.getInput(input);
+        sub.subtract();
+
+        mul.getInput(input);
+        mul.multiply();
+
+        div.getInput(input);
+        div.divide();
+    }
+}
+
+class InputValues {
+    double a, b;
+
+    void getInput(Scanner input) {
+        System.out.print("Enter first number: ");
+        a = input.nextDouble();
+        System.out.print("Enter second number: ");
+        b = input.nextDouble();
+    }
+}
+
+class Addition extends InputValues {
+    void add() {
+        double total = a + b;
+        System.out.println("Addition: " + total);
+    }
+}
+
+class Subtraction extends InputValues {
+    void subtract() {
+        double diff = a - b;
+        System.out.println("Subtraction: " + diff);
+    }
+}
+
+class Multiplication extends InputValues {
+    void multiply() {
+        double product = a * b;
+        System.out.println("Multiplication: " + product);
+    }
+}
+
+class Division extends InputValues {
+    void divide() {
+        if (b != 0) {
+            double result = a / b;
+            System.out.println("Division: " + result);
+        } else {
+            System.out.println("Division by zero is not allowed.");
+        }
+    }
+}
+  </code></pre>
+    </section>
+    <br>
+    <script src="script.js"></script>
+</body>
+
+</html>
