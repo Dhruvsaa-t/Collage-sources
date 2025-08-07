@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>php Assignment 1</title>
+    <style>
+        h2 {
+            color: aliceblue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950">
+    <header class="text-gray-400 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="index.html" class="mr-5 hover:text-white">Home</a>
+                <a href="assignment.html" class="mr-5 hover:text-white">Assignment</a>
+                <a href="matrial.html" class="mr-5 hover:text-white">Materials</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>1</h2>
+        <pre><code class="language-php">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+    &lt;?php
+        echo "Write your name";
+    ?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>2</h2>
+        <pre><code class="language-php">
+&lt;html&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;p&gt;Enter principal amount&lt;/p&gt;
+        &lt;input type="number" name="p" required&gt;
+
+        &lt;p&gt;Enter rate of interest per year&lt;/p&gt;
+        &lt;input type="number" name="r" required&gt;
+
+        &lt;p&gt;Enter time period in years&lt;/p&gt;
+        &lt;input type="number" name="t" required&gt;
+
+        &lt;input type="submit" name="sub" value="Submit"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_REQUEST['sub'])) {
+        $p = $_REQUEST['p'];
+        $r = $_REQUEST['r'];
+        $t = $_REQUEST['t'];
+
+        $si = ($p * $r * $t) / 100;
+        echo "&lt;h2&gt;Simple Interest = $si&lt;/h2&gt;";
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>3</h2>
+        <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;?php
+        $side1 = 2;
+        $side2 = 3;
+        $area = $side1 * $side2;
+        echo "&lt;p&gt;Area of rectangle: $area&lt;/p&gt;";
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>4</h2>
+        <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;?php
+        $first = "Hello";
+        $second = "World";
+
+        echo $first . " " . $second; // Output: Hello World
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>5</h2>
+        <pre><code class="language-php">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="post"&gt;
+        &lt;p&gt;Enter 1st number:&lt;/p&gt;
+        &lt;input type="number" name="num1"&gt;
+
+        &lt;p&gt;Enter 2nd number:&lt;/p&gt;
+        &lt;input type="number" name="num2"&gt;
+
+        &lt;p&gt;Enter 3rd number:&lt;/p&gt;
+        &lt;input type="number" name="num3"&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;input type="submit" value="Check"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_POST['num1']) && isset($_POST['num2']) && isset($_POST['num3'])) {
+        $a = $_POST['num1'];
+        $b = $_POST['num2'];
+        $c = $_POST['num3'];
+
+        if ($a &gt; $b &amp;&amp; $a &gt; $c) {
+            echo "&lt;h1&gt;A is biggest: $a&lt;/h1&gt;";
+        } else if ($b &gt; $a &amp;&amp; $b &gt; $c) {
+            echo "&lt;h1&gt;B is biggest: $b&lt;/h1&gt;";
+        } else {
+            echo "&lt;h1&gt;C is biggest: $c&lt;/h1&gt;";
+        }
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>6</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="post"&gt;
+        &lt;p&gt;Enter a number:&lt;/p&gt;
+        &lt;input type="number" name="num" required&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;input type="submit" name="sub" value="Check"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_POST['sub'])) {
+        $n = $_POST['num'];
+        if ($n % 2 == 0) {
+            echo "&lt;h3&gt;$n is Even&lt;/h3&gt;";
+        } else {
+            echo "&lt;h3&gt;$n is Odd&lt;/h3&gt;";
+        }
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>7</h2>
+      <pre><code class="language-php">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;p&gt;Enter 1 number:&lt;/p&gt;
+        &lt;input type="number" name="num1"&gt;
+        &lt;p&gt;Enter 2 number:&lt;/p&gt;
+        &lt;input type="number" name="num2"&gt;
+        &lt;input type="submit" name="sub" value="Check"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_REQUEST['sub'])) {
+        $num1 = $_REQUEST['num1'];
+        $num2 = $_REQUEST['num2'];
+
+        if ($num1 == $num2) {
+            echo "&lt;h1&gt;$num1 and $num2 are equal&lt;/h1&gt;";
+        } else {
+            echo "&lt;h1&gt;$num1 and $num2 are not equal&lt;/h1&gt;";
+        }
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>8</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="post"&gt;
+        &lt;p&gt;Enter your name:&lt;/p&gt;
+        &lt;input type="text" name="name" required&gt;
+        &lt;input type="submit" name="sub" value="Convert"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_REQUEST['sub'])) {
+        $name = strtoupper($_REQUEST['name']); // Convert to uppercase for consistency
+        $length = strlen($name);
+        echo "&lt;h3&gt;Converted Result:&lt;/h3&gt;&lt;p&gt;";
+
+        for ($i = 0; $i &lt; $length; $i++) {
+            $char = $name[$i];
+
+            // Check if it's an alphabet character
+            if (ctype_alpha($char)) {
+                $number = ord($char) - 64; // A=65 in ASCII, so A - 64 = 1
+                echo "$char = $number&lt;br&gt;";
+            } else {
+                echo "$char is not a letter&lt;br&gt;";
+            }
+        }
+
+        echo "&lt;/p&gt;";
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>9</h2>
+       <pre><code class="language-php">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="post"&gt;
+        &lt;p&gt;Enter a number (1-12):&lt;/p&gt;
+        &lt;input type="number" name="num1" required&gt;
+        &lt;br&gt;&lt;br&gt;
+        &lt;input type="submit" name="sub" value="Submit"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if(isset($_REQUEST['sub'])) {
+        $ch = $_REQUEST['num1'];
+        switch($ch) {
+            case 1:
+                echo "January";
+                break;
+            case 2:
+                echo "February";
+                break;
+            case 3:
+                echo "March";
+                break;
+            case 4:
+                echo "April";
+                break;
+            case 5:
+                echo "May";
+                break;
+            case 6:
+                echo "June";
+                break;
+            case 7:
+                echo "July";
+                break;
+            case 8:
+                echo "August";
+                break;
+            case 9:
+                echo "September";
+                break;
+            case 10:
+                echo "October";
+                break;
+            case 11:
+                echo "November";
+                break;
+            case 12:
+                echo "December";
+                break;
+            default:
+                echo "Invalid number. Please enter a number between 1 and 12.";
+        }
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>10</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;?php
+        for($i=1; $i&lt;=10; $i++) 
+        {
+            echo "$i Hello &lt;br&gt;";
+        }
+	?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>11</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="post"&gt;
+        &lt;h3&gt;Enter 10 numbers:&lt;/h3&gt;
+
+        &lt;?php
+        for ($i = 1; $i &lt;= 10; $i++) {
+            echo "Number $i: &lt;input type='number' name='num[]' required&gt;&lt;br&gt;&lt;br&gt;";
+        }
+        ?&gt;
+
+        &lt;input type="submit" name="sub" value="Calculate Sum"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_POST['sub'])) {
+        $numbers = $_POST['num'];
+        $sum = 0;
+
+        foreach ($numbers as $n) {
+            $sum += $n;
+        }
+
+        echo "&lt;h2&gt;The sum of the 10 numbers is: $sum&lt;/h2&gt;";
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>12</h2>
+      <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Multiplication Table of 10&lt;/h2&gt;
+
+    &lt;?php
+    $num = 10;
+
+    for ($i = 1; $i &lt;= 10; $i++) {
+        $result = $num * $i;
+        echo "$num x $i = $result&lt;br&gt;";
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>13</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Even Numbers Between 1 and 100:&lt;/h2&gt;
+
+    &lt;?php
+    for ($i = 1; $i &lt;= 100; $i++) {
+        if ($i % 2 == 0) {
+            echo "$i ";
+        }
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>14</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Factorial Calculator&lt;/h2&gt;
+    &lt;form method="post"&gt;
+        &lt;label&gt;Enter a number:&lt;/label&gt;
+        &lt;input type="number" name="num" min="0" required&gt;
+        &lt;input type="submit" name="sub" value="Calculate"&gt;
+    &lt;/form&gt;
+
+    &lt;?php
+    if (isset($_POST['sub'])) {
+        $num = $_POST['num'];
+        $factorial = 1;
+
+        if ($num == 0 || $num == 1) {
+            $factorial = 1;
+        } else {
+            for ($i = 2; $i &lt;= $num; $i++) {
+                $factorial *= $i;
+            }
+        }
+
+        echo "&lt;h3&gt;Factorial of $num is: $factorial&lt;/h3&gt;";
+    }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>15</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;?php
+        echo "&lt;h1&gt;1&lt;/h1&gt;";
+        for($i=0; $i&lt;=5; $i++)
+        {
+            for($j=0; $j&lt;=$i; $j++)
+            {
+                echo " *";
+            }
+            echo "&lt;br&gt;";
+        }
+
+        echo "&lt;h1&gt;2&lt;/h1&gt;";
+        for($i=1; $i&lt;=5; $i++)
+        {
+            for($j=1; $j&lt;=$i; $j++)
+            {
+                echo " $j";
+            }
+            echo "&lt;br&gt;";
+        }
+
+        echo "&lt;h1&gt;3&lt;/h1&gt;";
+        for($i=1; $i&lt;=5; $i++)
+        {
+            for($j=1; $j&lt;=$i; $j++)
+            {
+                echo " $i";
+            }
+            echo "&lt;br&gt;";
+        }
+
+        echo "&lt;h1&gt;4&lt;/h1&gt;";
+        for($i='A'; $i&lt;='E'; $i++)
+        {
+            for($j='A'; $j&lt;=$i; $j++)
+            {
+                echo " $j";
+            }
+            echo "&lt;br&gt;";
+        }
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+    <script src="script.js"></script>
+</body>
+
+</html>
