@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>php Assignment 1</title>
+    <style>
+        h2 {
+            color: aliceblue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950">
+    <header class="text-gray-400 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="index.html" class="mr-5 hover:text-white">Home</a>
+                <a href="assignment.html" class="mr-5 hover:text-white">Assignment</a>
+                <a href="matrial.html" class="mr-5 hover:text-white">Materials</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>1</h2>
+        <h2>register.php</h2>
+        <pre><code class="language-php">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;form id="form1" name="form1" method="post" action="display.php"&gt;
+    &lt;table width="368" border="0" align="center"&gt;
+      &lt;tr&gt;
+        &lt;td colspan="3"&gt;&lt;div align="center"&gt;Register&lt;/div&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td width="177"&gt;Enter Full Name &lt;/td&gt;
+        &lt;td width="9"&gt;:&lt;/td&gt;
+        &lt;td width="168"&gt;&lt;input type="text" name="name" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Enter Email &lt;/td&gt;
+        &lt;td&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" name="email" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Enter Mobile no &lt;/td&gt;
+        &lt;td&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" name="mobileno" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Gender&lt;/td&gt;
+        &lt;td&gt;:&lt;/td&gt;
+        &lt;td&gt;Male 
+          &lt;input name="gender" type="radio" value="male" /&gt; 
+          Female 
+          &lt;input name="gender" type="radio" value="female" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Address&lt;/td&gt;
+        &lt;td&gt;: &lt;/td&gt;
+        &lt;td&gt;&lt;textarea name="address"&gt;&lt;/textarea&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Create Username &lt;/td&gt;
+        &lt;td&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" name="username" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Create Password &lt;/td&gt;
+        &lt;td&gt;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" name="password" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+          &lt;input type="submit" name="register" value="Submit" /&gt;
+        &lt;/div&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>display.php</h2>
+<pre><code class="language-php">&lt;?php
+if (isset($_POST['register'])) {
+    echo "Hello&lt;br /&gt;";
+    echo "Name: " . $_POST['name'] . "&lt;br /&gt;";
+    echo "Email: " . $_POST['email'] . "&lt;br /&gt;";
+    echo "Mobile No: " . $_POST['mobileno'] . "&lt;br /&gt;";
+    echo "Gender: " . $_POST['gender'] . "&lt;br /&gt;";
+    echo "Address: " . $_POST['address'] . "&lt;br /&gt;";
+    echo "Username: " . $_POST['username'] . "&lt;br /&gt;";
+    echo "Password: " . $_POST['password'] . "&lt;br /&gt;";
+}
+?&gt;
+
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>2</h2>
+        <pre><code class="language-php">
+&lt;?php
+    if(isset($_POST['Submit']))
+    {
+        $p = $_REQUEST['Amount'];
+        $t = $_REQUEST['Year'];
+        $r = $_REQUEST['Rate'];
+        $SI = ($p * $t * $r) / 100;
+        $ans = "interest is ".$SI;
+    }
+?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lthtml xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lthead&gt;
+&ltmeta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lttitle&gt;Untitled Document&lt;/title&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+&ltform id="form1" name="form1" method="post" action=""&gt;
+  &lttable width="200" border="0" align="center"&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;&lt;?php echo $ans; ?&gt;&lt;/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;Simple interest calculation&lt;/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd width="87"&gt;Amount&lt;/td&gt;
+      &lttd width="8"&gt;:&lt;/td&gt;
+      &lttd width="91"&gt;&ltinput type="text" name="Amount" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd&gt;Year&lt;/td&gt;
+      &lttd&gt;:&lt;/td&gt;
+      &lttd&gt;&ltinput type="text" name="Year" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd&gt;Rate&lt;/td&gt;
+      &lttd&gt;:&lt;/td&gt;
+      &lttd&gt;&ltinput type="text" name="Rate" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;
+        &ltinput type="submit" name="Submit" value="Submit" /&gt;
+      &lt/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+  &lt/table&gt;
+&lt/form&gt;
+&lt/body&gt;
+&lt/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>3</h2>
+        <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lthtml xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lthead&gt;
+&ltmeta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lttitle&gt;Untitled Document&lt;/title&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+&ltform id="form1" name="form1" method="post" action=""&gt;
+  &lttable width="200" border="0" align="center"&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;Enter name and age&lt;/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd width="87"&gt;Name&lt;/td&gt;
+      &lttd width="8"&gt;:&lt;/td&gt;
+      &lttd width="91"&gt;&ltinput type="text" name="name" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd&gt;Age&lt;/td&gt;
+      &lttd&gt;:&lt;/td&gt;
+      &lttd&gt;&ltinput type="text" name="age" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;
+        &ltinput type="submit" name="Submit" value="Submit" /&gt;
+      &lt/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+        &lt;?php
+            if(isset($_POST['Submit']))
+            {
+                $name = $_REQUEST['name'];
+                $age = $_REQUEST['age'];
+                $ans = "My name is ".$name." And my age is ".$age;
+                echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;$ans&lt;/div&gt;&lt;/td&gt;";
+            }
+        ?&gt;
+    &lt/tr&gt;
+  &lt/table&gt;
+&lt/form&gt;
+&lt/body&gt;
+&lt/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>4</h2>
+        <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lthtml xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lthead&gt;
+&ltmeta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lttitle&gt;Untitled Document&lt;/title&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+&ltform id="form1" name="form1" method="post" action=""&gt;
+  &lttable width="200" border="0" align="center"&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;Enter two nums&lt;/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd width="87"&gt;Num1&lt;/td&gt;
+      &lttd width="8"&gt;:&lt;/td&gt;
+      &lttd width="91"&gt;&ltinput type="text" name="num1" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd&gt;Num2&lt;/td&gt;
+      &lttd&gt;:&lt;/td&gt;
+      &lttd&gt;&ltinput type="text" name="num2" /&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+      &lttd colspan="3"&gt;&ltdiv align="center"&gt;
+        &ltinput type="submit" name="Submit" value="Submit" /&gt;
+      &lt/div&gt;&lt/td&gt;
+    &lt/tr&gt;
+    &lttr&gt;
+        &lt;?php
+            if(isset($_POST['Submit']))
+            {
+                $num1 = $_REQUEST['num1'];
+                $num2 = $_REQUEST['num2'];
+                $ans;
+                if($num1 &gt; $num2)
+                {
+                    echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;Num1 is higher $num1&lt;/div&gt;&lt;/td&gt;";
+                }
+                else if($num1 &lt; $num2)
+                {
+                    echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;Num2 is higher $num2&lt;/div&gt;&lt;/td&gt;";
+                }
+                else
+                {
+                    echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;Num2 and Num1 both are same&lt;/div&gt;&lt;/td&gt;";
+                }
+            }
+        ?&gt;
+    &lt/tr&gt;
+  &lt/table&gt;
+&lt/form&gt;
+&lt/body&gt;
+&lt/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>5</h2>
+        <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="200" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;Enter student marks&lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="87"&gt;sub1&lt;/td&gt;
+      &lt;td width="8"&gt;:&lt;/td&gt;
+      &lt;td width="91"&gt;&lt;input type="text" name="sub1" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sub2&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="sub2" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td&gt;sub3&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="sub3" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td&gt;sub4&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="sub4" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td&gt;sub5&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="sub5" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td&gt;sub6&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="sub6" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;?php
+	  	if(isset($_POST['Submit']))
+		{
+			$sub1 = $_REQUEST['sub1'];
+			$sub2 = $_REQUEST['sub2'];
+			$sub3 = $_REQUEST['sub3'];
+			$sub4 = $_REQUEST['sub4'];
+			$sub5 = $_REQUEST['sub5'];
+			$sub6 = $_REQUEST['sub6'];
+			$tot = $sub1 + $sub2 + $sub3 + $sub4 + $sub5 + $sub6;
+			$per = $tot/6;
+			if($per &lt;= 100 &amp;&amp; $per &gt; 90)
+			{
+				echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;A&lt;/div&gt;&lt;/td&gt;";
+			}
+			else if($per &lt;= 90 &amp;&amp; $per &gt; 80)
+			{
+				echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;B&lt;/div&gt;&lt;/td&gt;";
+			}
+			else if($per &lt;= 80 &amp;&amp; $per &gt; 70)
+			{
+				echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;C&lt;/div&gt;&lt;/td&gt;";
+			}
+			else if($per &lt;= 70 &amp;&amp; $per &gt; 60)
+			{
+				echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;D&lt;/div&gt;&lt;/td&gt;";
+			}
+			else
+			{
+				echo "&lt;td colspan='3'&gt;&lt;div align='center'&gt;F&lt;/div&gt;&lt;/td&gt;";
+			}
+		}
+	  ?&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+    <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>6</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;Students Information &lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;&lt;span class="style1"&gt;
+        &lt;label&gt;&lt;/label&gt;
+      &lt;/span&gt;Students Name &lt;/td&gt;
+      &lt;td width="11"&gt;:&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input type="text" name="name" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Students RollNo. &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;
+        &lt;input type="text" name="Rollno" /&gt;
+      &lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Students Division &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Div" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Students Course &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Course" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Students Sem &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Sem" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Students Collage/University &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Cname" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$name = $_REQUEST['name'];
+				$Rollno = $_REQUEST['Rollno'];
+				$Div = $_REQUEST['Div'];
+				$Course = $_REQUEST['Course'];
+				$Sem = $_REQUEST['Sem'];
+				$Cname = $_REQUEST['Cname'];
+				$arr = array($name, $Rollno, $Div, $Course, $Sem, $Cname);
+				foreach ($arr as $value) {
+						// Code to execute for each $value
+						echo $value.", ";
+				}
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>7</h2>
+      <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;String Compare&lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;&lt;span class="style1"&gt;
+        &lt;label&gt;&lt;/label&gt;
+      &lt;/span&gt;Enter the First String &lt;/td&gt;
+      &lt;td width="11"&gt;:&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input name="Str1" type="text" id="Str1" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enter the Second String&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;
+        &lt;input name="Str2" type="text" id="Str2" /&gt;
+      &lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$Str1 = $_REQUEST['Str1'];
+				$Str2 = $_REQUEST['Str2'];
+				if(strcmp($Str1, $Str2)== 0)
+					echo"Both String Are Same....";
+				else
+					echo"Both Are Not Same....";
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>8</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;Count Number of Words &lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;&lt;span class="style1"&gt;
+        &lt;label&gt;&lt;/label&gt;
+      &lt;/span&gt;Enter the String &lt;/td&gt;
+      &lt;td width="11"&gt;:&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input name="Str1" type="text" id="Str1" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$Str1 = $_REQUEST['Str1'];
+				$wordCount = str_word_count($Str1);
+				echo "Number of words in the string: " . $wordCount;
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>9</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;Reverse String &lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;&lt;span class="style1"&gt;
+        &lt;label&gt;&lt;/label&gt;
+      &lt;/span&gt;Enter the String &lt;/td&gt;
+      &lt;td width="11"&gt;:&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input name="Str1" type="text" id="Str1" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$Str1 = $_REQUEST['Str1'];
+				$rev = strrev($Str1);
+				echo "The Reverse String is: " . $rev;
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>10</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;Merge Array&lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;&lt;span class="style1"&gt;
+        &lt;label&gt;&lt;/label&gt;
+      &lt;/span&gt;Enter your name &lt;/td&gt;
+      &lt;td width="11"&gt;::&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input name="name1" type="text" id="name1" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enter your Father name &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;span class="style1"&gt;
+        &lt;input name="name2" type="text" id="name2" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enter your Grand Father Name &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;span class="style1"&gt;
+        &lt;input name="name3" type="text" id="name3" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enter your Surname &lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;span class="style1"&gt;
+        &lt;input name="name4" type="text" id="name4" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$name1 = $_REQUEST['name1'];
+				$name2 = $_REQUEST['name2'];
+				$name3 = $_REQUEST['name3'];
+				$name4 = $_REQUEST['name4'];
+				$arr1 = [$name1, $name2];
+				$arr2 = [$name3, $name4];
+				print_r($arr1);
+				echo "&lt;br /&gt;";
+				print_r($arr2);
+				echo "&lt;br /&gt;";
+				$mergedArray = array_merge($arr1, $arr2);
+				print_r($mergedArray);
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+    </section>
+    <br>
+
+     <section class="bg-gray-900 text-white p-4 md:p-8 rounded-lg mx-2 md:mx-20 my-6 overflow-x-auto">
+        <h2>11</h2>
+       <pre><code class="language-php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;title&gt;Untitled Document&lt;/title&gt;
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-style: italic}
+.style2 {font-size: 36px}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form id="form1" name="form1" method="post" action=""&gt;
+  &lt;table width="427" border="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;label&gt;
+        &lt;div align="center" class="style2"&gt;Binary To Decimal &lt;/div&gt;
+      &lt;/label&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width="186"&gt;Enter your Binary Value &lt;/td&gt;
+      &lt;td width="11"&gt;:&lt;/td&gt;
+      &lt;td width="208"&gt;&lt;span class="style1"&gt;
+        &lt;input name="BR" type="text" id="BR" /&gt;
+      &lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;div align="center"&gt;
+        &lt;input type="submit" name="Submit" value="Submit" /&gt;
+      &lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;?php
+			if(isset($_REQUEST['Submit']))
+			{
+				$BR = $_REQUEST['BR'];
+				$decimal = bindec($BR); // Convert to decimal
+
+				echo "Binary: $BR&lt;br&gt;";
+				echo "Decimal: $decimal";
+			}
+	  ?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+    </section>
+    <br>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
