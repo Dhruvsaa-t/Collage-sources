@@ -1,0 +1,24 @@
+CREATE TABLE stud (
+  rollno NUMBER(7) PRIMARY KEY,
+  name VARCHAR2(30) NOT NULL,
+  address VARCHAR2(50),
+  city VARCHAR2(20) CHECK (city IN ('Bhavnagar', 'Rajkot', 'Surat')),
+  pincode NUMBER(6),
+  mobile NUMBER(10),
+  gender CHAR(1) CHECK (gender IN ('m', 'f')),
+  dob DATE NOT NULL
+);
+
+INSERT INTO stud VALUES(&rollno, '&name', '&address', '&city', &pincode, &mobile, '&gender', TO_DATE('&dob', 'DD/MM/YYYY'));
+
+select rollno, name, city from stud;
+
+ select upper(name) as nm from stud where city = 'Rajkot';
+
+select name from stud where to_char(dob, 'MON') = 'OCT' ;
+
+SELECT gender, COUNT(*) AS total FROM stud GROUP BY gender;
+
+select name from stud where name like 'D%';
+
+select rollno from stud where rollno between 3 and 5;

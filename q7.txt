@@ -1,0 +1,35 @@
+ create table facebook
+ (
+ user_ID number(4) primary key,
+ username varchar2(50),
+ email varchar2(100),
+ dob date,
+ join_date date,
+ location varchar2(100)
+ );
+
+create table post (
+  post_id number(4) PRIMARY KEY,
+  user_id NUMBER(4),
+  content CLOB,
+  post_date DATE,
+  likes NUMBER(4),
+  shares NUMBER(4),
+  FOREIGN KEY (user_id) REFERENCES facebook(user_ID)
+);
+
+ insert into facebook values(&user_ID, '&username', '&email', to_date('&dob','DD/MM/YYYY'), to_date('&join_date', 'DD/MM/YYYY'), '&location');
+
+insert into post values(&post_id, &user_id, '&content', to_date('&post_date', 'DD/MM/YYYY'), &likes, &shares);
+
+SELECT username FROM facebook WHERE location = 'Bhavnagar' ORDER BY join_date;
+
+select user_id, count(*) as total_post from post group by user_id order by total_post desc;
+
+SELECT user_id, AVG(likes) AS average_likes FROM post GROUP BY user_id ORDER BY average_likes DESC;
+
+SELECT * FROM post WHERE likes = (SELECT MAX(likes) FROM post);
+
+update facebook set location = 'Bhavnagar' where user_ID = 1002;
+
+alter table post drop column shares;

@@ -1,0 +1,26 @@
+create table account
+(
+account_no number(4) primary key,
+name varchar2(20),
+dob date,
+salary number(6),
+gender varchar2(6)
+);
+
+insert into account values(&account_no, '&name', to_date('&dob', 'DD/MM/YYYY'), &salary, '&gender');
+
+select * from account where gender = 'FEMALE' order by name desc;
+
+select * from account where salary = (select max(salary) from account);
+
+select name from account where to_char(dob, 'YYYY') between 2001 and 2003;
+
+ select upper(name) as name from account;
+
+ delete from account where salary = 15000;
+
+ update account set salary = salary * 1.05 where gender = 'MALE';
+
+select name from account where name between 'R%' and 'U%';
+
+ alter table account rename column salary to gross_salary;

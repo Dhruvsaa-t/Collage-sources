@@ -1,0 +1,34 @@
+create table customer
+(
+customer_id number (3) primary key,
+first_name varchar2(50),
+last_name varchar2(50),
+data_of_birth date,
+gender char(1),
+address varchar2(100),
+phone_number number(10),
+email varchar2(50)
+);
+
+create table bank_account
+(
+account_id number(3) primary key,
+customer_id number(3),
+account_type varchar2(20),
+balance number(12, 2),
+opened_date date,
+status varchar2(20),
+FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+insert into customer values(&customer_id, '&first_name', '&last_name', to_date('&date_of_birth', 'DD/MM/YYYY'), '&gender', '&address', &phone_number, '&email');
+
+insert into bank_account values(&account_id, &customer_id, '&account_type', &balance, to_date('&opened_date', 'DD/MM/YYYY'), '&status');
+
+select * from customer where last_name = 'Patel' order by first_name desc;
+
+select account_type, sum(balance) from bank_account group by account_type;
+
+UPDATE bank_account SET status = 'Inactive' WHERE balance <= 10000;
+
+select account_type, max(balance) from bank_account group by account_type;

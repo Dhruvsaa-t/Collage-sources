@@ -1,0 +1,73 @@
+//Table create
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  position VARCHAR(50),
+  salary DECIMAL(10,2),
+  department VARCHAR(50),
+  hire_date DATE
+);
+
+CREATE TABLE product (
+  product_id INT PRIMARY KEY,
+  product_name VARCHAR(100),
+  category VARCHAR(50),
+  price DECIMAL(10,2),
+  stock_quantity INT,
+  emp_id INT,
+  created_date DATE,
+  FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+);
+
+
+
+//insert query 1
+INSERT INTO employee VALUES (1, 'Amit', 'Shah', 'Manager', 75000.00, 'Sales', TO_DATE('2019-04-10','YYYY-MM-DD'));
+
+INSERT INTO product VALUES (101, 'TV', 'Electronics', 45000.00, 60, 1, TO_DATE('2023-01-10','YYYY-MM-DD'));
+
+
+//query 2
+UPDATE employee
+SET salary = salary * 1.05
+WHERE department = 'Purchase';
+
+
+//query 3
+SELECT *
+FROM product
+WHERE price < 100;
+
+
+//query 4
+SELECT *
+FROM employee
+WHERE department = 'Sales'
+ORDER BY hire_date;
+
+
+//query 5
+SELECT DISTINCT e.*
+FROM employee e
+JOIN product p ON e.emp_id = p.emp_id
+WHERE p.product_name = 'TV';
+
+
+//query 6
+DELETE FROM employee
+WHERE emp_id IN (
+  SELECT emp_id
+  FROM product
+  WHERE stock_quantity < 50
+);
+
+
+//query 7
+SELECT *
+FROM employee e
+WHERE salary > (
+  SELECT AVG(salary)
+  FROM employee
+  WHERE department = e.department
+);

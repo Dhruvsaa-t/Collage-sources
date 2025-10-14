@@ -1,0 +1,23 @@
+create table Account_master
+(
+acc_no number(3) primary key,
+acc_name varchar2(30),
+dob date,
+opening_date date,
+balance number(11,2),
+acc_type char(1),
+gender char(1),
+acc_satus char(1)
+);
+
+insert into Account_master values(&acc_no, '&acc_name', to_date('&dob', 'DD/MM/YYYY'), to_date('&opening_data', 'DD/MM/YYYY'), &balance, '&acc_type', '&gender', '&acc_satus');
+
+select * from Account_master;
+
+select * from Account_master where acc_satus = 'I' order by acc_name;
+
+ select * from Account_master where gender = 'F' and to_char(dob, 'YYYY') < 2000;
+
+SELECT COUNT(*) AS total_male FROM Account_master WHERE gender = 'M';
+
+ delete from Account_master where acc_satus = 'I';

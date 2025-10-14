@@ -1,0 +1,54 @@
+//table create
+CREATE TABLE student (
+  student_id NUMBER(4) PRIMARY KEY,
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50),
+  date_of_birth DATE,
+  gender CHAR(1) CHECK (gender IN ('M', 'F')),
+  class VARCHAR2(10),
+  admission_date DATE
+);
+
+CREATE TABLE marks (
+  mark_id NUMBER(4) PRIMARY KEY,
+  student_id NUMBER(4),
+  subject VARCHAR2(50),
+  exam_type VARCHAR2(50),
+  mark_obtained NUMBER(5,2),
+  total_mark NUMBER(5,2),
+  exam_date DATE,
+  FOREIGN KEY (student_id) REFERENCES student(student_id)
+);
+
+insert into student values(&student_id, '&first_name', '&last_name', to_date('&date_of_birth','DD/MM/YYYY'), '&gender', '&class', to_date('&admission_date','DD/MM/YYYY'));
+
+insert into marks values(&mark_id, &student_id, '&subject', '&exam_type', &mark_obtained, &total_mark, to_date('&exam_date', 'DD/MM/YYYY'));
+
+
+
+SELECT * FROM student WHERE class LIKE 'BCA%' ORDER BY last_name;
+
+
+
+SELECT student_id, AVG(mark_obtained) AS average_marks
+FROM marks
+GROUP BY student_id;
+
+
+
+SELECT student_id, SUM(mark_obtained) AS total_final_marks
+FROM marks
+WHERE exam_type = 'Final'
+GROUP BY student_id;
+
+
+
+SELECT s.first_name || ' ' || s.last_name AS full_name,
+       m.mark_obtained
+FROM student s
+JOIN marks m ON s.student_id = m.student_id
+WHERE m.subject = 'Oracle';
+
+
+
+

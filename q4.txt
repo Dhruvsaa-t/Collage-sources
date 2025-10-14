@@ -1,0 +1,35 @@
+create table account_masters
+(
+account_no number(11) primary key,
+ac_type char(1),
+tran_no number(20),
+balance number(20)
+);
+
+create table account_holder 
+(
+cust_id number(5) primary key,
+cust_name varchar2(25) not null,
+address varchar2(50),
+city varchar2(15),
+account_no number(11),
+ac_open_date date,
+mobile number(10),
+foreign key(account_no) references account_masters(account_no)
+);
+
+insert into account_masters values(&account_no, '&ac_type', &tran_no, &balance);
+
+insert into account_holder values(&cust_id, '&cust_name', '&address', '&city', &account_no, to_date('&ac_open_date', 'DD/MM/YYYY'), &mobile);
+
+select * from account_masters where ac_type = 'S';
+
+alter table account_holder add dob date;
+
+select cust_name from account_holder where cust_name = 'J%';
+
+ delete from account_holder where city = 'Mumbai';
+
+select a.account_no, a.ac_type, a.tran_no, a.balance, b.cust_id, b.cust_name, b.address, b.city, b.account_no as holder_acc_no, b.ac_open_date, b.mobile, b.dob from account_masters a join account_holder b on a.account_no = b.account_no order by b.cust_id desc;
+
+SELECT b.cust_name, a.account_no, a.balance FROM account_masters a JOIN account_holder b ON a.account_no = b.account_no;

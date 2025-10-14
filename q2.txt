@@ -1,0 +1,43 @@
+//Table create
+CREATE TABLE Tbl_Book_Issue (
+  B_id NUMBER(5) PRIMARY KEY,
+  B_title VARCHAR2(25),
+  Author_name VARCHAR2(25),
+  ISBN NUMBER(5),
+  Category VARCHAR2(25),
+  Issue_Date DATE,
+  Return_Date DATE
+);
+
+
+//insert query 1
+INSERT INTO Tbl_Book_Issue VALUES (&B_id, '&B_title', '&Author_name', &ISBN, '&Category', TO_DATE('&Issue_Date','DD/MM/YYYY'), TO_DATE('&Return_Date','DD/MM/YYYY'));
+
+
+//query 2
+SELECT *
+FROM Tbl_Book_Issue
+WHERE Author_name = 'Swami Vivekanand';
+
+
+//query 3
+SELECT *
+FROM Tbl_Book_Issue
+WHERE Issue_Date BETWEEN TO_DATE('2022-05-02','YYYY-MM-DD') AND TO_DATE('2022-10-05','YYYY-MM-DD');
+
+
+//query 4
+SELECT Author_name
+FROM Tbl_Book_Issue
+GROUP BY Author_name
+HAVING COUNT(*) > 5;
+
+
+//query 5
+ALTER TABLE Tbl_Book_Issue
+ADD book_price NUMBER(6,2);
+
+
+//query 7
+ALTER TABLE Tbl_Book_Issue
+RENAME COLUMN Category TO book_category;
